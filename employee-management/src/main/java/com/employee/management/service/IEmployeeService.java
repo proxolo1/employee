@@ -12,5 +12,4 @@ public interface IEmployeeService {
     ResponseEntity<String> updateEmployee(Integer id,EmployeeModel employee);
     ResponseEntity<String> deleteEmployee(Integer id);
 
-    EmployeeModel getprojectid(Integer id);
 }

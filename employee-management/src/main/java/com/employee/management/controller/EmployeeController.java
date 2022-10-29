@@ -65,7 +65,7 @@ public class EmployeeController {
     public ResponseEntity<String> deleteEmployee(@PathVariable Integer id){
         return employeeService.deleteEmployee(id);
     }
-    @GetMapping("/demo/{name}")
+    @GetMapping("get-project-employee/{name}")
     public List<EmployeeModel> demo(@PathVariable String name){
         return repo.findByProjectModelProjectName(name);
     }

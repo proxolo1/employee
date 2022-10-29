@@ -85,10 +85,7 @@ public class EmployeeService implements IEmployeeService {
 
     }
 
-    @Override
-    public EmployeeModel getprojectid(Integer id) {
-        return employeeRepository.findById(id).get();
-    }
+
 
     @Override
     public String toString() {
