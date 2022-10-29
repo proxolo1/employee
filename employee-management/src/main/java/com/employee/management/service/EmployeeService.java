@@ -2,6 +2,7 @@ package com.employee.management.service;
 
 import com.employee.management.exception.ResourceNotFoundException;
 import com.employee.management.model.EmployeeModel;
+import com.employee.management.model.ProjectModel;
 import com.employee.management.repository.EmployeeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +58,6 @@ public class EmployeeService implements IEmployeeService {
             logger.info("Function updateEmployee() called with id :" + id.toString() + " Employee is :" + updateEmployee.toString());
             EmployeeModel employee = employeeRepository.findById(id).orElseThrow(()->new UsernameNotFoundException("Employee->"+updateEmployee.toString()+" with id:"+id+" not found"));
             employee.setName(updateEmployee.getName());
-            employee.setProject(updateEmployee.getProject());
             employee.setEmail(updateEmployee.getEmail());
             employee.setPhoneNumber(updateEmployee.getPhoneNumber());
             employee.setModified(updateEmployee.getModified());
@@ -83,6 +83,11 @@ public class EmployeeService implements IEmployeeService {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    @Override
+    public EmployeeModel getprojectid(Integer id) {
+        return employeeRepository.findById(id).get();
     }
 
     @Override

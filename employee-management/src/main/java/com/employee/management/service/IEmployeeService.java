@@ -11,4 +11,6 @@ public interface IEmployeeService {
     ResponseEntity<String> addEmployee(EmployeeModel employee);
     ResponseEntity<String> updateEmployee(Integer id,EmployeeModel employee);
     ResponseEntity<String> deleteEmployee(Integer id);
+
+    EmployeeModel getprojectid(Integer id);
 }

@@ -5,6 +5,7 @@ import com.employee.management.dto.RegisterDto;
 import com.employee.management.model.EmployeeModel;
 import com.employee.management.model.Role;
 import com.employee.management.model.User;
+import com.employee.management.repository.EmployeeRepository;
 import com.employee.management.repository.RoleRepository;
 import com.employee.management.repository.UserRepository;
 import com.employee.management.service.IEmployeeService;
@@ -29,7 +30,8 @@ public class EmployeeController {
 
     @Autowired
     private IEmployeeService employeeService;
-
+    @Autowired
+    private EmployeeRepository repo;
     @GetMapping("/")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
@@ -47,7 +49,7 @@ public class EmployeeController {
     public ResponseEntity<EmployeeModel> getEmployee(@PathVariable Integer id){
         return employeeService.getEmployee(id);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("add-employee")
     public ResponseEntity<String> addEmployee(@RequestBody EmployeeModel employee){
        return employeeService.addEmployee(employee);
@@ -62,6 +64,10 @@ public class EmployeeController {
     @DeleteMapping("delete-employee/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Integer id){
         return employeeService.deleteEmployee(id);
+    }
+    @GetMapping("/demo/{name}")
+    public List<EmployeeModel> demo(@PathVariable String name){
+        return repo.findByProjectModelProjectName(name);
     }
     @GetMapping("/*")
     public ModelAndView unWanted(){

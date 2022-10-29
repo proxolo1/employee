@@ -10,8 +10,6 @@ public class EmployeeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "emp_id")
     private int empId;
-    @Column(name = "project",nullable = false)
-    private String project;
     @Column(name = "emp_name",nullable = false)
     private String name;
     @Column(name = "emp_email",nullable = false)
@@ -26,7 +24,8 @@ public class EmployeeModel {
     }
     @Column(name = "Phone_number",nullable = false)
     private String phoneNumber;
-
+    @ManyToOne
+    private ProjectModel projectModel;
     public String getModified() {
         return modified;
     }
@@ -43,13 +42,7 @@ public class EmployeeModel {
         this.empId = empId;
     }
 
-    public String getProject() {
-        return project;
-    }
 
-    public void setProject(String project) {
-        this.project = project;
-    }
 
     public String getName() {
         return name;
@@ -67,11 +60,19 @@ public class EmployeeModel {
         this.phoneNumber = phoneNumber;
     }
 
+    public ProjectModel getProjectModel() {
+        return projectModel;
+    }
+
+    public void setProjectModel(ProjectModel projectModel) {
+        this.projectModel = projectModel;
+    }
+
     @Override
     public String toString() {
         return "EmployeeModel{" +
                 "empId=" + empId +
-                ", project='" + project + '\'' +
+
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", modified='" + modified + '\'' +
