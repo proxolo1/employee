@@ -49,7 +49,7 @@ public class EmployeeController {
     public ResponseEntity<EmployeeModel> getEmployee(@PathVariable Integer id){
         return employeeService.getEmployee(id);
     }
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("add-employee")
     public ResponseEntity<String> addEmployee(@RequestBody EmployeeModel employee){
        return employeeService.addEmployee(employee);

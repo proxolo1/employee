@@ -61,6 +61,7 @@ public class EmployeeService implements IEmployeeService {
             employee.setEmail(updateEmployee.getEmail());
             employee.setPhoneNumber(updateEmployee.getPhoneNumber());
             employee.setModified(updateEmployee.getModified());
+            employee.setProjectModel(updateEmployee.getProjectModel());
             employeeRepository.save(employee);
             return new ResponseEntity<String>("updated successfully", HttpStatus.OK);
         } catch (Exception e) {
