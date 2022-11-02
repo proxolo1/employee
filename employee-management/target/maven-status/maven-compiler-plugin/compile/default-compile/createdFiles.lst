@@ -1,6 +1,0 @@
-com\employee\management\controller\EmployeeController.class
-com\employee\management\repository\EmployeeRepository.class
-com\employee\management\service\EmployeeService.class
-com\employee\management\model\EmployeeModel.class
-com\employee\management\service\IEmployeeService.class
-com\employee\management\EmployeeManagementApplication.class
